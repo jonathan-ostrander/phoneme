@@ -50,5 +50,5 @@ describe('phoneme', function() {
       assert.deepEqual('phonetic'.consonants(), phoneme.consonants('phonetic'));
     });
 
-  })
-})
+  });
+});
