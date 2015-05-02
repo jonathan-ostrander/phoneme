@@ -4,8 +4,6 @@ var cmuObj = JSON.parse(fs.readFileSync(cmuDict, 'utf8'));
 
 module.exports = {
 
-  phoneme: this,
-
   process: function(word) {
     return cmuObj[word.toUpperCase()] ? cmuObj[word.toUpperCase()][0] : undefined;
   },
@@ -15,30 +13,33 @@ module.exports = {
   },
 
   _isVowel: function(pho) {
-    return !(phoneme._isConsonant(pho));
+    return pho.length === 3;
   },
 
   vowels: function(word) {
-    return phoneme.process(word).filter(phoneme._isVowel);
+    var phonemes = this.process(word)
+    return phonemes ? phonemes.filter(this._isVowel) : phonemes;
   },
 
   consonants: function(word) {
-    return phoneme.process(word).filter(phoneme._isConsonant);
+    var phonemes = this.process(word)
+    return phonemes ? phonemes.filter(this._isConsonant) : phonemes;
   },
 
   attach: function() {
+    var _this = this;
 
     String.prototype.phonemes = function() {
-      return phoneme.process(this);
+      return _this.process(this);
     };
 
     String.prototype.vowels = function() {
-      return phoneme.vowels(this);
-    }
+      return _this.vowels(this);
+    };
 
     String.prototype.consonants = function() {
-      return phoneme.consonants(this);
-    }
+      return _this.consonants(this);
+    };
 
   }
 }

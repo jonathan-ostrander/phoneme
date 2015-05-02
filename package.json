@@ -1,6 +1,6 @@
 {
   "name": "phoneme",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "small module for attaching a phonemes (from cmudict) method to string",
   "main": "index.js",
   "repository": {
