@@ -1,0 +1,22 @@
+{
+  "name": "phoneme",
+  "version": "0.0.0",
+  "description": "small module for attaching a phonemes (from cmudict) method to string",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/OstrichProjects/phoneme.git"
+  },
+  "scripts": {
+    "test": "mocha test/tests.js",
+  },
+  "keywords": [
+    "phoneme",
+    "nlp"
+  ],
+  "author": "Jonathan Ostrander",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^2.2.4"
+  }
+}
